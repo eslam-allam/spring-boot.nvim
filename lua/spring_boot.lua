@@ -51,7 +51,7 @@ M.setup = function(opts)
   initialized = true
 end
 
-M.java_extensions = function()
+M.java_extensions = function(bundle_path)
   local bundles = {}
   local function bundle_jar(path)
     for _, jar in ipairs(vim.g.spring_boot.jdt_extensions_jars) do
@@ -60,7 +60,7 @@ M.java_extensions = function()
       end
     end
   end
-  local spring_boot_path = vim.g.spring_boot.jdt_extensions_path
+  local spring_boot_path = bundle_path or vim.g.spring_boot.jdt_extensions_path
     or require("spring_boot.vscode").find_one("/vmware.vscode-spring-boot-*/jars")
   if spring_boot_path then
     for _, bundle in ipairs(vim.split(vim.fn.glob(spring_boot_path .. "/*.jar"), "\n")) do
