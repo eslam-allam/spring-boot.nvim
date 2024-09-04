@@ -48,7 +48,6 @@ local function bootls_cmd(rt_dir, java_cmd)
   local boot_classpath = {}
   table.insert(boot_classpath, boot_path .. "/BOOT-INF/classes")
   table.insert(boot_classpath, boot_path .. "/BOOT-INF/lib/*")
-  local jbin = java_bin or util.java_bin()
   local cmd = {
     java_cmd or util.java_bin(),
     "-XX:TieredStopAtLevel=1",
