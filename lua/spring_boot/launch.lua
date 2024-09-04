@@ -133,6 +133,9 @@ M.setup = function(_)
       if e.file == "java" and vim.bo[e.buf].buftype == "nofile" then
         return
       end
+      if vim.endswith(e.file, "gradle.properties") then
+        return
+      end
       if vim.endswith(e.file, "pom.xml") then
         return
       end
